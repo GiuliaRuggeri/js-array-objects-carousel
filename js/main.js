@@ -38,6 +38,7 @@ images.forEach((element, index, array) => {
     createImage(element)
 });
 
+
 function createImage(photo) {
 
     let img = document.createElement("img");
@@ -60,6 +61,7 @@ let currentImage = 0;
 const photos = document.querySelectorAll("#imgwrapper img");
 const titles = document.querySelectorAll("#imgwrapper div")
 
+
 photos[currentImage].classList.add("block");
 titles[currentImage].classList.add("block")
 function changeImg(direction) {
@@ -67,11 +69,6 @@ function changeImg(direction) {
 
 
     if (direction == "right") {
-        photos[currentImage].classList.remove("block");
-        titles[currentImage].classList.remove("block");
-        currentImage++;
-        photos[currentImage].classList.add("block");
-        titles[currentImage].classList.add("block");
 
 
         if (currentImage == images.length - 1) {
@@ -80,6 +77,13 @@ function changeImg(direction) {
             currentImage = 0;
             photos[currentImage].classList.add("block");
             titles[currentImage].classList.add("block");
+        }else{
+            photos[currentImage].classList.remove("block");
+            titles[currentImage].classList.remove("block");
+            currentImage++;
+            photos[currentImage].classList.add("block");
+            titles[currentImage].classList.add("block");
+    
         }
 
     } else if (direction == "left") {
@@ -90,13 +94,15 @@ function changeImg(direction) {
             currentImage = images.length - 1;
             photos[currentImage].classList.add("block");
             titles[currentImage].classList.add("block");
+        }else{
+
+            photos[currentImage].classList.remove("block");
+            titles[currentImage].classList.remove("block");
+            currentImage--;
+            photos[currentImage].classList.add("block");
+            titles[currentImage].classList.add("block");
         }
 
-        photos[currentImage].classList.remove("block");
-        titles[currentImage].classList.remove("block");
-        currentImage--;
-        photos[currentImage].classList.add("block");
-        titles[currentImage].classList.add("block");
 
 
     }
